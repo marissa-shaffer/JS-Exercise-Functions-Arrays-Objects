@@ -60,8 +60,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(name) {
-  /* code here */
+function getName(object) {
+  return "Hello, my name is " + object.name;
 }
 
 /**
@@ -77,10 +77,9 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(/*code here.*/) {
+/*code here.*/
 }
-
 
 
 
@@ -182,8 +181,16 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(carInventory) {
+  let carModels = [];
+  for (let i = 0; i < carInventory.length; i++) {
+    carModels.push(carInventory[i]);
+  }
+  carModels.sort(
+    (a, b) =>
+    a.car_model > b.car_model ? 1 : b.car_model > a.car_model ? -1 : 0
+  );
+  return carModels;
 }
 
 /**
