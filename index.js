@@ -39,8 +39,12 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  return{
+    id: id,
+    name: name,
+    email: email,
+  }
 }
 
 /**
@@ -56,8 +60,8 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(object) {
+  return "Hello, my name is " + object.name;
 }
 
 /**
@@ -73,11 +77,17 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  return{
+    name,
+    sum: function(num1,num2) {
+      return num1+num2;
+    },
+    speak: function() {
+      return `Hello my name is ${name}`;
+    }
+  };
 }
-
-
 
 
 
@@ -136,7 +146,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  return `This is a ${inventory[index].car_make} ${inventory[index].car_model} `
 }
 
 /**
@@ -150,8 +160,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+    const car = inventory[inventory.length - 1]; 
+    return `The car is a ${car.car_make} ${car.car_model}`;
 }
 
 /**
@@ -178,8 +189,16 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(carInventory) {
+  let carModels = [];
+  for (let i = 0; i < carInventory.length; i++) {
+    carModels.push(carInventory[i]);
+  }
+  carModels.sort(
+    (a, b) =>
+    a.car_model > b.car_model ? 1 : b.car_model > a.car_model ? -1 : 0
+  );
+  return carModels;
 }
 
 /**
